@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">Click Me</button></p>
+
+<p><button onclick="resett()">Reset</button></p>
+
+<p><button onclick="upp()">^</button></p>
+
+<p><button onclick="downn()">\/</button></p>
+
+<p><button onclick="leftt()"> { </button></p>
+ 
+<p><button onclick="rightt()"> } </button></p>
+
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+  let pos = 0;
+  const elem = document.getElementById("animate");
+
+function myMove() 
+{
+	let id = null;
+	pos = 0;
+	clearInterval(id);
+	id = setInterval(frame, 5);
+	function frame() 
+	{
+		if (pos == 350) 
+		{
+		clearInterval(id);
+		} 	
+		else 
+		{
+		pos++; 
+		elem.style.top = pos + "px"; 
+		//elem.style.left = pos + "px";//
+		}
+	}
+}
+
+function resett()
+{
+	pos = 0;
+	elem.style.top = pos  + "px";
+	elem.style.left = pos  + "px";
+	elem.style.right = pos  + "px";
+}
+
+function rightt()
+{
+	pos = pos + 10;
+	elem.style.left = pos  + "px";
+}
+function leftt()
+{
+	pos = pos + 10;
+	elem.style.right = pos  + "px";
+}
+function rightt()
+{
+	pos = pos + 10;
+	elem.style.left = pos  + "px";
+}
+function rightt()
+{
+	pos = pos + 10;
+	elem.style.left = pos  + "px";
+}
+
+</script>
+
+</body>
+</html>
