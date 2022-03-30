@@ -140,39 +140,39 @@ function setup(cheeck){
 
 	case "bluekill":
 	bluepawn = document.getElementById("a23");
-	bluepawn.style.backgroundColor = "blue";
+	bluepawn.style.backgroundImage = "url('img/pawns/bluepawn.png')";
 	break;
 	case "yellowkill":
 	yellowpawn = document.getElementById("a33");
-	yellowpawn.style.backgroundColor = "yellow";
+	yellowpawn.style.backgroundImage = "url('img/pawns/yellowpawn.png')";
 	break;
 	case "greenkill":
 	greenpawn = document.getElementById("a3");
-	greenpawn.style.backgroundColor = "green";
+	greenpawn.style.backgroundImage = "url('img/pawns/greenpawn.png')";
 	break;
 	case "redkill":
 	redpawn = document.getElementById("a13");
-	redpawn.style.backgroundColor = "red";
+	redpawn.style.backgroundImage = "url('img/pawns/redpawn.png')";
 	break;
 	case "setup":
 		yellowpawn = document.getElementById("a33");
-		yellowpawn.style.backgroundColor = "yellow";
+		yellowpawn.style.backgroundImage = "url('img/pawns/yellowpawn.png')";
 
 		bluepawn = document.getElementById("a23");
-		bluepawn.style.backgroundColor = "blue";
+		bluepawn.style.backgroundImage = "url('img/pawns/bluepawn.png')";
 
 		greenpawn = document.getElementById("a3");
-		greenpawn.style.backgroundColor = "green";
+		greenpawn.style.backgroundImage = "url('img/pawns/greenpawn.png')";
 
 		redpawn = document.getElementById("a13");
-		redpawn.style.backgroundColor = "red";
+		redpawn.style.backgroundImage = "url('img/pawns/redpawn.png')";
 	break;
 }
 }
 													//FIXED: other solution: https://stackoverflow.com/questions/68959632/typeerror-cannot-read-properties-of-undefined-reading-id
 function MOVE_Blue()
 {
-	bluepawn.style.backgroundColor = "white";
+	bluepawn.style.backgroundImage = "";
 	bluepos = bluepos + totalroll;
 	animation(1);
 	totalroll = 0;	
@@ -180,7 +180,7 @@ function MOVE_Blue()
 	//bluepos = bluepos - 40;
 	//	
 	//bluepawn = document.getElementById("a" + bluepos);
-	//bluepawn.style.backgroundColor = "blue";
+	//bluepawn.style.backgroundImage = "url("img/pawns/yellowpawn.png")" "blue";
 	if (bluepos == redpos){
 		setup("redkill"); console.log("Red killed");
 
@@ -197,7 +197,7 @@ function MOVE_Blue()
 }
 function MOVE_Red()
 {
-	redpawn.style.backgroundColor = "white";
+	redpawn.style.backgroundImage = "";
 	redpos = redpos + totalroll;
 	animation(4);
 	totalroll = 0;
@@ -205,7 +205,7 @@ function MOVE_Red()
 	//redpos = redpos - 40;
 	//	
 	//redpawn = document.getElementById("a" + redpos);
-	//redpawn.style.backgroundColor = "red";
+	//redpawn.style.backgroundImage = "url("img/pawns/yellowpawn.png")" "red";
 	if (redpos == bluepos){
 		setup("bluekill"); console.log("Blue killed");
 
@@ -222,7 +222,7 @@ function MOVE_Red()
 }
 function MOVE_Green()
 {
-	greenpawn.style.backgroundColor = "white";
+	greenpawn.style.backgroundImage = "";
 	greenpos = greenpos + totalroll;
 	animation(3);
 	totalroll = 0;
@@ -231,7 +231,7 @@ function MOVE_Green()
 	//greenpos = greenpos - 40;
 	//	
 	//greenpawn = document.getElementById("a" + greenpos);
-	//greenpawn.style.backgroundColor = "green";
+	//greenpawn.style.backgroundImage = "url("img/pawns/yellowpawn.png")" "green";
 	if (greenpos == bluepos){
 		setup("bluekill"); console.log("Blue killed");
 
@@ -248,7 +248,7 @@ function MOVE_Green()
 }
 function MOVE_Yellow()
 {
-	yellowpawn.style.backgroundColor = "white";
+	yellowpawn.style.backgroundImage ="";
 	yellowpos = yellowpos + totalroll;
 	animation(2);
 	totalroll = 0;
@@ -259,7 +259,7 @@ function MOVE_Yellow()
 	//
 	////can add smooth animation with e.g for (i=1; i<=totalroll; i++)
 	//yellowpawn = document.getElementById("a" + yellowpos);
-	//yellowpawn.style.backgroundColor = "yellow";
+	//yellowpawn.style.backgroundImage = "url("img/pawns/yellowpawn.png")" "yellow";
 	////checkKill(yellowpos);
 
 	if (yellowpos == bluepos){
@@ -280,48 +280,48 @@ function animation(player) {
 	switch(player){
 		case 1:
 			for(i=0; i<=totalroll; i++){
-			bluepawn.style.backgroundColor = "white";
+			bluepawn.style.backgroundImage = "";
 			bluepos ++;
 				if (bluepos > 40)
 				{bluepos = bluepos - 40;}
 			bluepawn = document.getElementById("a" + bluepos);
-			bluepawn.style.backgroundColor = "blue";
+			bluepawn.style.backgroundImage = "url('img/pawns/bluepawn.png')";
 			//await sleep(1000);
 			}
 		break;
 	
 		case 2:
 			for(i=0; i<=totalroll; i++){
-				yellowpawn.style.backgroundColor = "white";
+				yellowpawn.style.backgroundImage = "";
 				yellowpos ++;
 					if (yellowpos > 40)
 					{yellowpos = yellowpos - 40;}
 				yellowpawn = document.getElementById("a" + yellowpos);
-				yellowpawn.style.backgroundColor = "yellow";
+				yellowpawn.style.backgroundImage = "url('img/pawns/yellowpawn.png')";
 				//await sleep(1000);
 			}
 		break;
 
 		case 3:
 			for(i=0; i<=totalroll; i++){
-				greenpawn.style.backgroundColor = "white";
+				greenpawn.style.backgroundImage = "";
 				greenpos ++;
 					if (greenpos > 40)
 					{greenpos = greenpos - 40;}
 				greenpawn = document.getElementById("a" + greenpos);
-				greenpawn.style.backgroundColor = "green";
+				greenpawn.style.backgroundImage ="url('img/pawns/greenpawn.png')";
 				//await sleep(1000);
 			}
 		break;
 	
 		case 4:
 			for(i=0; i<=totalroll; i++){
-				redpawn.style.backgroundColor = "white";
+				redpawn.style.backgroundImage ="";
 				redpos ++;
 					if (redpos > 40)
 					{redpos = redpos - 40;}
 				redpawn = document.getElementById("a" + redpos);
-				redpawn.style.backgroundColor = "red";
+				redpawn.style.backgroundImage ="url('img/pawns/redpawn.png')";
 				//await sleep(1000);
 			}
 		break;
