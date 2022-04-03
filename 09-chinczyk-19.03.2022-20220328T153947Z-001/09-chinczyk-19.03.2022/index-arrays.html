@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <!-- onload="setup(5)" -->
+  <!-- boardgame setup-->
+  <input type="button" id="btnmove" onclick="rollRound()" value="Roll">
+  <input type="button" id="btnstartgame" onclick="startgame()" value="Startowy rzut: ">
+  <div id="startgame"></div>
+  <table>
+    <tbody>
+      <tr>
+        <td class="yellow" id="yellowbase1"></td>
+        <td class="yellow" id="yellowbase2"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a1"></td>
+        <td id="a2"></td>
+        <td id="a3"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="green" id="greenbase1"></td>
+        <td class="green" id="greenbase2"></td>
+      </tr>
+      <tr>
+        <td class="yellow" id="yellowbase3"></td>
+        <td class="yellow" id="yellowbase4"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a40"></td>
+        <td class="green" id="green1"></td>
+        <td id="a4"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="green" id="greenbase3"></td>
+        <td class="green" id="greenbase4"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="yellow-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a39"></td>
+        <td class="green" id="green2"></td>
+        <td id="a5"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="green-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a38"></td>
+        <td class="green" id="green3"></td>
+        <td id="a6"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td id="a33"></td>
+        <td id="a34"></td>
+        <td id="a35"></td>
+        <td id="a36"></td>
+        <td id="a37"></td>
+        <td class="green" id="green4"></td>
+        <td id="a7"></td>
+        <td id="a8"></td>
+        <td id="a9"></td>
+        <td id="a10"></td>
+        <td id="a11"></td>
+      </tr>
+      <tr>
+        <td id="a32"></td>
+        <td class="yellow" id="yellow1"></td>
+        <td class="yellow" id="yellow2"></td>
+        <td class="yellow" id="yellow3"></td>
+        <td class="yellow" id="yellow4"></td>
+        <td class="emptyfield"></td>
+        <td class="red" id="red4"></td>
+        <td class="red" id="red3"></td>
+        <td class="red" id="red2"></td>
+        <td class="red" id="red1"></td>
+        <td id="a12"></td>
+      </tr>
+      <tr>
+        <td id="a31"></td>
+        <td id="a30"></td>
+        <td id="a29"></td>
+        <td id="a28"></td>
+        <td id="a27"></td>
+        <td class="blue" id="blue4"></td>
+        <td id="a17"></td>
+        <td id="a16"></td>
+        <td id="a15"></td>
+        <td id="a14"></td>
+        <td id="a13"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a26"></td>
+        <td class="blue" id="blue3"></td>
+        <td id="a18"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a25"></td>
+        <td class="blue" id="blue2"></td>
+        <td id="a19"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td class="blue" id="bluebase1"></td>
+        <td class="blue" id="bluebase2"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a24"></td>
+        <td class="blue" id="blue1"></td>
+        <td id="a20"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="red" id="redbase1"></td>
+        <td class="red" id="redbase2"></td>
+      </tr>
+      <tr>
+        <td class="blue" id="bluebase3"></td>
+        <td class="blue" id="bluebase4"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td id="a23"></td>
+        <td id="a22"></td>
+        <td id="a21"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="red" id="redbase3"></td>
+        <td class="red" id="redbase4"></td>
+      </tr>
+      <tr>
+        <!-- added another row of empty-filed for estetic buttons-->
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="blue-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="red-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+      </tr>
+    </tbody>
+  </table>
+  <script src="script-arrays.js"></script>
+
+</body>
+
+</html>
+<!--
+  Zrobić żeby button id="move" były 'disable = false'po wyrzuceniu pierwszej 6.
+  Potem 'disable = true' w 'id="btnstartgame"'
+-->
