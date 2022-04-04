@@ -1,3 +1,4 @@
+pole = [12];
 var bluepos;
 var bluepawn = document.getElementById("a23");
 
