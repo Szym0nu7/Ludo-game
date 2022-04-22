@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <!-- onload="setup(5)" -->
+  <!-- boardgame setup-->
+
+  <input type="button" id="btnstartgame" onclick="startgame()" value="Startowy rzut: ">
+  <div id="startgame"></div>
+  <table>
+    <tbody>
+      <tr>
+        <td class="yellow" onclick="fromBase(0)" id="yellowbase0"></td>
+        <td class="yellow" onclick="fromBase(1)" id="yellowbase1"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(0)" id="a0"></td>
+        <td onclick="checkfield(1)" id="a1"></td>
+        <td onclick="checkfield(2)" id="a2"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="green" id="greenbase1"></td>
+        <td class="green" id="greenbase2"></td>
+      </tr>
+      <tr>
+        <td class="yellow" onclick="fromBase(2)" id="yellowbase2"></td>
+        <td class="yellow" onclick="fromBase(3)" id="yellowbase3"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(39)" id="a39"></td>
+        <td class="green" id="green1"></td>
+        <td onclick="checkfield(3)" id="a3"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="green" id="greenbase3"></td>
+        <td class="green" id="greenbase4"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="yellow-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(38)" id="a38"></td>
+        <td class="green" id="green2"></td>
+        <td onclick="checkfield(4)" id="a4"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="green-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(37)" id="a37"></td>
+        <td class="green" id="green3"></td>
+        <td onclick="checkfield(5)" id="a5"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td onclick="checkfield(32)" id="a32"></td>
+        <td onclick="checkfield(33)" id="a33"></td>
+        <td onclick="checkfield(34)" id="a34"></td>
+        <td onclick="checkfield(35)" id="a35"></td>
+        <td onclick="checkfield(36)" id="a36"></td>
+        <td class="green" id="green4"></td>
+        <td onclick="checkfield(6)" id="a6"></td>
+        <td onclick="checkfield(7)" id="a7"></td>
+        <td onclick="checkfield(8)" id="a8"></td>
+        <td onclick="checkfield(9)" id="a9"></td>
+        <td onclick="checkfield(10)" id="a10"></td>
+      </tr>
+      <tr>
+        <td onclick="checkfield(31)" id="a31"></td>
+        <td class="yellow" id="yellow1"></td>
+        <td class="yellow" id="yellow2"></td>
+        <td class="yellow" id="yellow3"></td>
+        <td class="yellow" id="yellow4"></td>
+        <td class="emptyfield"></td>
+        <td class="red" id="red4"></td>
+        <td class="red" id="red3"></td>
+        <td class="red" id="red2"></td>
+        <td class="red" id="red1"></td>
+        <td onclick="checkfield(11)" id="a11"></td>
+      </tr>
+      <tr>
+        <td onclick="checkfield(30)" id="a30"></td>
+        <td onclick="checkfield(29)" id="a29"></td>
+        <td onclick="checkfield(28)" id="a28"></td>
+        <td onclick="checkfield(27)" id="a27"></td>
+        <td onclick="checkfield(26)" id="a26"></td>
+        <td class="blue" id="blue4"></td>
+        <td onclick="checkfield(16)" id="a16"></td>
+        <td onclick="checkfield(15)" id="a15"></td>
+        <td onclick="checkfield(14)" id="a14"></td>
+        <td onclick="checkfield(13)" id="a13"></td>
+        <td onclick="checkfield(12)" id="a12"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(25)" id="a25"></td>
+        <td class="blue" id="blue3"></td>
+        <td onclick="checkfield(17)" id="a17"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(24)" id="a24"></td>
+        <td class="blue" id="blue2"></td>
+        <td onclick="checkfield(18)" id="a18"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+      </tr>
+      <tr>
+        <td class="blue" id="bluebase1"></td>
+        <td class="blue" id="bluebase2"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(23)" id="a23"></td>
+        <td class="blue" id="blue1"></td>
+        <td onclick="checkfield(19)" id="a19"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="red" id="redbase1"></td>
+        <td class="red" id="redbase2"></td>
+      </tr>
+      <tr>
+        <td class="blue" id="bluebase3"></td>
+        <td class="blue" id="bluebase4"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td onclick="checkfield(22)" id="a22"></td>
+        <td onclick="checkfield(21)" id="a21"></td>
+        <td onclick="checkfield(20)" id="a20"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="red" id="redbase3"></td>
+        <td class="red" id="redbase4"></td>
+      </tr>
+      <tr>
+        <!-- added another row of empty-filed for estetic buttons-->
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="blue-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
+        <!--<input type="button" id="red-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+      </tr>
+    </tbody>
+  </table>
+  <script src="script-arrays.js"></script>
+
+</body>
+
+</html>
+<!--
+  Zrobić żeby button id="move" były 'disable = false'po wyrzuceniu pierwszej 6.
+  Potem 'disable = true' w 'id="btnstartgame"'
+-->
