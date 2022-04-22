@@ -1,10 +1,36 @@
-var pole = [];
-var Ybase = [];
+var pole = [
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[]
+];
+
+var rampawn;
+
+var piony =	["yellow1","yellow2"];
+
+var pcount = [0,0];
+
 var rollnum;
 var totalroll = 0;
 
-Ybase[0] = "yellow1";
-var pawn = document.getElementById("yellowbase0");
+pole[1][58] = "yellow1";
+pole[2][59] = "yellow2";
+var pawn = document.getElementById("yellowbase58");
+pawn.style.backgroundImage = "url('img/pawns/yellowpawn.png')";
+pawn = document.getElementById("yellowbase59");
 pawn.style.backgroundImage = "url('img/pawns/yellowpawn.png')";
 
 function roll() 								
@@ -28,21 +54,30 @@ function roll()
 
 function checkfield (id){
 
-	if (pole[id] == "yellow1"){
+	
+	if (piony.includes(pole[id]) == true){
 
-		pole[id] = ""; 													//wyczyszcza zawartosc klikniętego pola
+		console.log("id " + id) 
+		rampawn = pole[id];	
+		pole[id] = null;
+		console.log(rampawn)												//wyczyszcza zawartosc klikniętego pola
 		pawn = document.getElementById("a" + id);						//pobiera id miejsca pionka
 		pawn.style.backgroundImage = ""; 								//wyczyszcza pionek graficznie
+		//tets();
+		roll(); 											//wykonuje rzut
+		pcount[piony.indexOf(rampawn)] = pcount[piony.indexOf(rampawn)] + totalroll;														
+		id = id + totalroll; 											//oddaje wartosc do którego miejsca musi pójść pionek	
+		totalroll = 0;		
+		console.log(pcount[piony.indexOf(rampawn)])
 
-		roll(); 														//wykonuje rzut
-		id = id + totalroll; 											//oddaje wartosc do którego miejsca musi pójść pionek
-		totalroll = 0; 													//wymazujemy ilość rzuconych oczek
-
-		if (id > 39){ 													//cofa index aby plansza się zapętlała
+		if (pcount[piony.indexOf(rampawn)] >= 39){
+		id = 43;
+		}
+		else if (id > 39){ 													//cofa index aby plansza się zapętlała
 			id = id - 39;
 		}
-
-		pole[id] = "yellow1"; 											//przypisujemy do pola nowe miejsce pionka
+																		//wymazujemy ilość rzuconych oczek
+		pole[id] = rampawn; 											//przypisujemy do pola nowe miejsce pionka
 		pawn = document.getElementById("a" + id);						//pobiera id nowego miejsca pionka
 		pawn.style.backgroundImage = "url('img/pawns/yellowpawn.png')"; //przypisuje pionek graficznie
 	}
@@ -50,14 +85,26 @@ function checkfield (id){
 }
 
 function fromBase(id){
-	if(Ybase[id] == "yellow1")
+	if(piony.includes(pole[id]) == true)
 	{
-		Ybase[id] = null;
+		rampawn = pole[id];
 		pawn = document.getElementById("yellowbase" + id);
 		pawn.style.backgroundImage = null;
 		pawn = document.getElementById("a32");
 		pawn.style.backgroundImage = "url('img/pawns/yellowpawn.png')";
-		pole[32] = "yellow1";
+		pole[id] = null;
+		pole[32] = rampawn;
 	}
 }
+var n = 0;
+function ofindex(){
+	console.log(pole[n].indexOf("yellow1"));
+	n++;
+}
+function tets(){
+pole.forEach(ofindex);
+n = 0;
+}
+
+
 
