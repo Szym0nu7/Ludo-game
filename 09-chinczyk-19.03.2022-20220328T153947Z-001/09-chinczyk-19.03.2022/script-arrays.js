@@ -21,6 +21,10 @@ var ramN;
 var idram;
 
 var var1;
+var yd = 43;
+var gd = 47;
+var rd = 51;
+var bd = 55;
 
 var rampawn;
 var rampawns = [];
@@ -55,14 +59,37 @@ field[15][73] = "b73";
 var pawn;
 loading();
 var checktrue = 0;
+var score = [0,0,0,0]
+
+function areyawinningson(){
+	if(yd == 39){
+		score[0]++;
+		updategame();
+	}
+	else if(gd == 43){
+		score[1]++;
+		updategame();
+	}
+	else if(rd == 47){
+		score[2]++;
+		updategame();
+	}
+	else if(bd == 51){
+		score[3]++;
+		updategame();
+	}
+}
+function updategame(){
+	
+}
 
 function checkpawn(){
 	n = 0;
 	field.forEach(truecheckpawn);
-	
+		
 }
 function truecheckpawn(){
-	console.log("n = " + n + "|| idram = " + idram)
+	//console.log("n = " + n + "|| idram = " + idram)
 	
 	if (pawns.includes(field[n][idram]) == true){ 
 		console.log("n" + n)
@@ -79,13 +106,10 @@ function checkpawn2(){
 	field.forEach(truecheckpawn2);
 }
 function truecheckpawn2(){
-	console.log("n = " + n + "|| idram = " + idram)
+	
 	if (pawns.includes(field[n][idram]) == true){ 
-		console.log("n" + n)
-		console.log("pawn "+ pawns[n])
 		rampawns[n] = pawns[n];
 		ramN = n;
-		checktrue = 1;
 	}
 	n++;	
 }
@@ -93,7 +117,7 @@ function truecheckpawn2(){
 function roll(){
 	
 	rollnum = Math.floor(Math.random() * 6) + 1;
-	console.log(rollnum + " Roll-Number"); 			
+	console.log(rollnum + " = Roll-Number"); 			
 	totalroll = totalroll + rollnum;
 	if (rollnum == 6)
 	{
@@ -101,7 +125,7 @@ function roll(){
 	}
 	else{
 		if(totalroll != 0){								
-			console.log(totalroll + " Total-Roll"); 	
+			console.log(totalroll + " = Total-Roll"); 	
 			console.log(""); 							
 		}	
 	}
@@ -110,57 +134,60 @@ function roll(){
 
 function checkfield (id){
 	idram = id;
-	console.log(field[0].indexOf("yellow1"))
+	checktrue = 0;
 	checkpawn();
-	console.log(checktrue + " from checkfield")
+							console.log(checktrue + " from checkfield / 0 or 1")
 	
-	if (checktrue == 1){  //chodzenie
-		checktrue = 0;
-		console.log("id " + id) 
-		//rampawn = field[id];	
-		field[ramN][id] = null;												//wyczyszcza zawartosc klikniętego pola
-		console.log(rampawn)											
-		pawn = document.getElementById("a" + id);						//pobiera id miejsca pionka
-		pawn.style.backgroundImage = null; 								//wyczyszcza pionek graficznie
-		//tets();
-		roll(); 														//wykonuje rzut
-		pcount[pawns.indexOf(rampawn)] = pcount[pawns.indexOf(rampawn)] + totalroll;		//zmiana ścieżki => do domu												
-		id = id + totalroll; 											//oddaje wartosc do którego miejsca musi pójść pionek	
-		totalroll = 0;													//wymazujemy ilość rzuconych oczek
-		console.log(pcount[pawns.indexOf(rampawn)])
+	if (checktrue == 1){ 
+		console.log(id + " = id")
+
+		field[ramN][id] = null;								
+							console.log(rampawn + " = rampawn")											
+		pawn = document.getElementById("a" + id);
+		pawn.style.backgroundImage = null;
+		roll(); 														
+		pcount[pawns.indexOf(rampawn)] = pcount[pawns.indexOf(rampawn)] + totalroll;												
+		id = id + totalroll; 											
+		totalroll = 0;													
+							console.log("pcount = " + pcount[pawns.indexOf(rampawn)])
 
 		if (pcount[pawns.indexOf(rampawn)] >= 39 ){
-			if (rampawn.charAt(0) == "y") id = 43;
-			else if (rampawn.charAt(0) == "g") id = 47;
-			else if (rampawn.charAt(0) == "r") id = 51;
-			else if (rampawn.charAt(0) == "b") id = 55;
+				 if (rampawn.charAt(0) == "y") { id = yd; yd--; } // ID = 40 - 43
+			else if (rampawn.charAt(0) == "g") { id = gd; gd--; } // ID = 44 - 47
+			else if (rampawn.charAt(0) == "r") { id = rd; rd--; } // ID = 48 - 51
+			else if (rampawn.charAt(0) == "b") { id = bd; bd--; } // ID = 52 - 55
 		}
 		else if (id > 39){
 			id = id - 39;
 		}
-		field[ramN][id] = rampawn; 											//przypisujemy do pola nowe miejsce pionka
+
+		field[ramN][id] = rampawn; 											
 		idram = id;
+		rampawns = [];
 		checkpawn2();
 		for (i = 0; i <= 15; i++){
 			if (rampawns[i]!= null && rampawn.charAt(0) != rampawns[i].charAt(0)){
+									console.log("is it here?")
 				field[i][id] = null;
 				var1 = rampawns[i].substr(1, 2);
 				field[i][var1] = rampawns[i];
+				pcount[pawns.indexOf(rampawns[i])] = 0;
+				
 			}
 		}
-		
-
 		loading();
+		areyawinningson();
 	}
 	
 }
 
 function fromBase(id){
 	idram = id;
+	checktrue = 0;
 	checkpawn();
 									console.log(checktrue + " from base");
 	if(checktrue == 1){
-		checktrue = 0;
+		
 		pawn = document.getElementById("a" + id);
 		pawn.style.backgroundImage = null;
 		//pawn = document.getElementById("a32");
@@ -170,8 +197,8 @@ function fromBase(id){
 		else if(id >= 62 && id <= 65) start = 2;
 		else if(id >= 66 && id <= 69) start = 12;
 		else if(id >= 70 && id <= 73) start = 22;
-									console.log("n " + ramN);
-									console.log("pawn " + rampawn)
+									console.log("ramN = " + ramN);
+									console.log("rampawn = " + rampawn)
 		field[ramN][id] = null;
 		field[ramN][start] = rampawn;
 		loading();
@@ -192,4 +219,6 @@ function loading(){
 }
 
 
-
+function test(){
+	
+}
