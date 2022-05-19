@@ -5,12 +5,9 @@
   <link rel="stylesheet" href="main.css">
 </head>
 
-<body>
-  <!-- onload="setup(5)" -->
-  <!-- boardgame setup-->
+<body onload="loading()">
 
-  <input type="button" id="btnstartgame" onclick="test()" value="Testy">
-  <div id="startgame"></div>
+  <div id="left">
   <table>
     <tbody>
       <tr>
@@ -42,7 +39,6 @@
       <tr>
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
-        <!--<input type="button" id="yellow-btn" onclick="roll(this)" value="move"> -->
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
         <td onclick="checkfield(38)" id="a38"></td>
@@ -51,7 +47,6 @@
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
-        <!--<input type="button" id="green-btn" onclick="roll(this)" value="move"> -->
         <td class="emptyfield"></td>
       </tr>
       <tr>
@@ -159,10 +154,6 @@
         <td class="red" onclick="fromBase(69)" id="a69"></td>
       </tr>
       <tr>
-        <!-- added another row of empty-filed for estetic buttons-->
-        <td class="emptyfield"></td>
-        <td class="emptyfield"></td>
-        <!--<input type="button" id="blue-btn" onclick="roll(this)" value="move"> -->
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
@@ -171,25 +162,32 @@
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
         <td class="emptyfield"></td>
-        <!--<input type="button" id="red-btn" onclick="roll(this)" value="move"> -->
+        <td class="emptyfield"></td>
+        <td class="emptyfield"></td>
         <td class="emptyfield"></td>
       </tr>
     </tbody>
   </table>
- 
-  <ol>
-    <li id="p1"></li>
-    <li id="p2"></li>
-    <li id="p3"></li>
-    <li id="p4"></li>
-  </ol>
-
+  </div>
+<div id="right" class="bord">
+  <div id="playerwhich" class="bord"></div>
+  <div id="tip" class="bord"></div>
+  <input type="button" id="btnstartgame" onclick="test()" value="Testy">
+  <div id="list" class="bord">
+    <ol>
+      <li id="p0"></li>
+      <li id="p1"></li>
+      <li id="p2"></li>
+      <li id="p3"></li>
+    </ol>
+  </div>
+  <div id="dice" class="bord">
+    <input type="button" onclick="rolling()" value="press me ;)">
+    <div id="diceout"></div>
+  </div>
+</div>
   <script src="script-arrays.js"></script>
 
 </body>
 
 </html>
-<!--
-  Zrobić żeby button id="move" były 'disable = false'po wyrzuceniu pierwszej 6.
-  Potem 'disable = true' w 'id="btnstartgame"'
--->
