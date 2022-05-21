@@ -55,12 +55,16 @@ var wins = [
 	{player:"blue", score:0},
 ]
 
+var curplr = 1;
+
 //other variables
 
 var moved = 1;
 var checkroll = 0;
 var checktrue = 0;
 var rollagain = 0;
+var playercheck = 0;
+var isnt = 0;
 
 var diceoutput =""; 
 var plus;
@@ -72,6 +76,7 @@ var ramN;
 var idram;
 var rampawn;
 var rampawns = [];
+var convertedcurplr;
 
 //test function
 
@@ -81,24 +86,47 @@ function test(){
 
 //main functions
 
+function turns(){
+	checkroll = 0;
+	//player uses rolling
+	//player choses pawn
+	//eventually rolls again
+	curplr++;
+	if (curplr == 5) curplr = 1;
+	//repeat
+}
+
 function rolling(){
 	if(moved == 1){
-	roll();
-	checkroll = 1;
-	if(rollnum == 6){plus=" + ";}else{plus="";}
-	diceoutput = diceoutput + rollnum.toString() + plus;
-	document.getElementById("diceout").innerHTML = diceoutput;
-	if(rollnum != 6){diceoutput="";}
-	moved = 0;
+		roll();
+		checkroll = 1;
+		document.getElementById("diceout").innerHTML = rollnum;
+		moved = 0;
+		console.log("culprit " + curplr)
+		isntpawn();
+		if (isnt == 4){
+			console.log("inst")
+			isnt = 0;
+			document.getElementById("playerwhich").innerHTML = curplr;
+			if (rollagain == 0) {
+				checkroll = 0;
+				playerprogress();
+			}
+		}
 	}
-}
+}function roll(){
+	rollnum = Math.floor(Math.random() * 6) + 1;
+	console.log(rollnum + " = Roll-Number"); 			
+	if (rollnum == 6)	{
+		rollagain = 1;
+	}	
+}	
 
 function checkfield (id){
 	idram = id;
-	checktrue = 0;
-	checkpawn();
-	if (checktrue == 1 && checkroll == 1){ 
-		checkroll = 0;
+	chec();
+	if (checktrue == 1 && checkroll == 1 && playercheck == 1){ 
+		checclear();
 		console.log(id + " = id")
 		field[ramN][id] = null;								
 									console.log(rampawn + " = rampawn")											
@@ -129,11 +157,11 @@ function checkfield (id){
 				pcount[pawns.indexOf(rampawns[i])] = 0;
 			}
 		}
-		loading();
 		if (rollagain == 1){
 			rollagain = 0;
 			alert("rollagain")	
-		}
+		}else playerprogress(); 
+		loading();
 		moved = 1;
 		areyawinningson();
 	}
@@ -141,10 +169,10 @@ function checkfield (id){
 
 function fromBase(id){
 	idram = id;
-	checktrue = 0;
-	checkpawn();
-	if(checktrue == 1){
-		
+	chec();
+	if(checktrue == 1 && rollagain == 1 && checkroll == 1 && playercheck == 1){
+		checclear();
+
 		pawn = document.getElementById("a" + id);
 		pawn.style.backgroundImage = null;
 		var start;
@@ -154,11 +182,25 @@ function fromBase(id){
 		else if(id >= 70 && id <= 73) start = 22;
 		field[ramN][id] = null;
 		field[ramN][start] = rampawn;
+		if (rollagain == 1){
+			rollagain = 0;
+			alert("rollagain")	
+		}else playerprogress();
+		moved = 1;
 		loading();
 	}
 }
 
 //checking functions
+
+function checkplayer(){
+	
+	if (rampawn.charAt(0) == "y")convertedcurplr = 1;
+	else if (rampawn.charAt(0) == "g")convertedcurplr = 2;
+	else if (rampawn.charAt(0) == "r")convertedcurplr = 3;
+	else if (rampawn.charAt(0) == "b")convertedcurplr = 4;
+	if (convertedcurplr == curplr) playercheck = 1;
+}
 
 function areyawinningson(){
 	if(yd == 39){
@@ -204,9 +246,31 @@ function checkpawn2(){
 	n++;	
 }
 
+function isntpawn(){
+	n = 1;
+	wins.forEach(trueisntpawn);
+}function trueisntpawn(){
+	var shittydesign = curplr * 4 - n;
+	console.log("shittydesign "+shittydesign + " " +pawns[shittydesign])	
+	if (field[shittydesign].indexOf(pawns[shittydesign]) > 40){ 
+		isnt++;
+	}
+	n++;
+}
+
 //other functions
 
+function chec(){
+	checktrue = 0;
+	checkpawn();
+	checkplayer();
+}function checclear(){
+	checkroll = 0;
+	playercheck = 0;
+}
+
 function loading(){
+	document.getElementById("playerwhich").innerHTML = curplr;
     n = 0;
     field.forEach(finding);
 }function finding(){
@@ -233,10 +297,17 @@ function updategame(){
 	return 0;
 }
 
-function roll(){
-	rollnum = Math.floor(Math.random() * 6) + 1;
-	console.log(rollnum + " = Roll-Number"); 			
-	if (rollnum == 6)	{
-		rollagain = 1;
-	}	
-}	
+function playerprogress(){
+	curplr++;
+	isnt = 0;
+	if (curplr == 5) curplr = 1;
+	document.getElementById("playerwhich").innerHTML = curplr;
+	moved = 1;
+}
+
+function toggleMenu(){
+    let navigation = document.querySelector('.navigation');
+    let toggle = document.querySelector('.toggle');
+    navigation.classList.toggle('active');
+    toggle.classList.toggle('active');
+}
