@@ -6,20 +6,67 @@
   font-family: 'Poppins', sans-serif;
 }
 :root {
-  --c-background:#b3ecff;/*#150019*/ /*#F0F8FF*/
-  --c-nav: #00BFFFd6; /*#330748*/
-  --c-hoveref:#1e8fff8a; /*#ea1d63*/
-  --c-font:#fff;
-  --c-tile:#fff;
-  --c-border:var(--c-hoveref);
+  /* https://www.canva.com/colors/color-palettes/salmon-sushi/ */
+  --color-background:#e7f2f8;
+  --color-accent: #74bdcb;
+  --color-lighter-accnet:#8de2f3;
+  --color-darker-accent:#5a939f;
+  --color-darker-lighter-accent:#436e77;
+  --color-darker-darker-accent:#305056;
+  --color-light-unique:#EFE7BC;
+  --color-unique:#FFA384;
+
+  
+  --color-nav:var(--color-accent);
+  --color-nav-hover:var(--color-darker-accent);
+  --c-nav-font:var(--color-light-unique);
+  
+  --color-left-border:var(--color-darker-accent);
+  --color-left-background:var(--color-accent);
+  --color-left-yellow-background:var(--color-darker-accent);
+
+  --color-right-li-font:var(--color-darker-accent);
+  --color-right-font:var(--color-darker-lighter-accent);
+  --color-right-background:var(--color-lighter-accnet);
+  --color-right-border:var(--color-light-unique);
+  --color-right-btn-border:var(--color-light-unique);
+  --color-right-btn-font:var(--color-darker-lighter-accent);
+  --color-right-btn-background:var(--color-unique);
 }
+
+
 .darkmode{
-  --c-background:#121212fa;/*#150019*/ /*#F0F8FF*/
-  --c-nav: #121212d6; /*#330748*/
-  --c-hoveref:#ffffff15; /*#ea1d63*/
-  --c-font:#00BFFF;
-  --c-tile:#1E90FF;
-  --c-border:var(--c-hoveref);
+  /* https://www.canva.com/colors/color-palettes/doughnut-drizzle/ */
+  --color-background:rgb(45, 45, 45);
+  --color-accent: #4A3E30;
+  --color-lighter-accnet:#6B5640;
+  --color-darker-accent:#231F12;
+  --color-darker-lighter-accent:#342e1b;
+  --color-darker-darker-accent:#1c190e;
+  --color-unique:#6B5640;
+  --color-light-unique:#A78A70;
+
+  
+  --color-nav:var(--color-accent);
+  --color-nav-hover:var(--color-darker-accent);
+  --c-nav-font:var(--color-light-unique);
+  
+  --color-left-border:var(--color-darker-accent);
+  --color-left-background:var(--color-unique);
+  /* --color-left-background:var(--color-accent); */
+  --color-left-yellow-background:null;
+
+  --color-right-li-font:var(--color-light-unique);
+  /* --color-right-li-font:var(--color-darker-accent); */
+  --color-right-font:var(--color-light-unique);
+  /* --color-right-font:var(--color-darker-lighter-accent); */
+  --color-right-background:var(--color-accent);
+  /* --color-right-background:var(--color-lighter-accnet); */
+  --color-right-border:var(--color-light-unique);
+  --color-right-btn-border:var(--color-light-unique);
+  --color-right-btn-font:var(--color-light-unique);
+  /* --color-right-btn-font:var(--color-darker-lighter-accent); */
+  --color-right-btn-background:var(--color-unique);
 }
 body{
   display: grid;
@@ -27,13 +74,13 @@ body{
   justify-content: space-between;  
   grid-template-areas: "board menu";
   /* min-height: 100vh; */
-  background: var(--c-background);
+  background: var(--color-background);
 }
 .navigation{
   position:fixed;
   width: 60px;
   height: 100%;
-  background: var(--c-nav);
+  background: var(--color-nav);
   transition:0.5s;
   overflow: hidden;
 }
@@ -53,7 +100,7 @@ body{
   list-style: none;
 }
 .navigation ul li:hover{
-  background: var(--c-hoveref);
+  background: var(--color-nav-hover);
 }
 .navigation ul li a{
   position:relative;
@@ -61,7 +108,7 @@ body{
   display:block;
   display: flex;
   text-decoration: none;
-  color:var(--c-font);
+  color:var(--c-nav-font);
 }
 .navigation ul li a .icon{
   position:relative;
@@ -120,13 +167,15 @@ body{
 table.left td{
 	width:50px;
 	height:50px;
-	border:1px solid var(--c-border);                                                    /*   1 lub 2 px  */
   background-size:50px 50px;
   /* border-radius: 25px; */                                                             /*ROUNDED IDEA*/
   border-radius: 15px;
 }
+table.left td.field{
+	border:1px solid var(--color-left-border); /*   1 lub 2 px  */
+}
 .field{
-  background-color: var(--c-tile);
+  background-color: var(--color-left-background);
 }
 .emptyfield{
   border:none !important;
@@ -159,13 +208,6 @@ table.left td{
   width: 100%;
   text-align: center;
 }
-table.right tr{
-  color:var(--c-font);
-  background-color: var(--c-nav);
-}
-table.right td{
-  border: 1px solid var(--c-border);
-}
 #playerwhich, #tip{
   height:100px;
 }
@@ -174,9 +216,23 @@ table.right td{
 }
 table.right li{
   list-style-position: inside;
+  color: var(--color-right-li-font);
+}
+table.right tr{
+  color:var(--color-right-font);
+  background-color: var(--color-right-background);
+}
+table.right td{
+  border: 1px solid var(--color-right-border);
 }
 input[type="button"]{
-  border-color: var(--c-border);
-  color: var(--c-font);
-  background-color:var(--c-background);
+  border-color: var(--color-right-btn-border);
+  color: var(--color-right-btn-font);
+  background-color:var(--color-right-btn-background);
+}
+.yellow{
+  border:1px solid var(--color-left-yellow-background);
+}
+.dark-mode-toggle{
+  cursor: pointer;
 }
