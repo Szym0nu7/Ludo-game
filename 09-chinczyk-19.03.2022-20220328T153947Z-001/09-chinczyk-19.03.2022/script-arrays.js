@@ -98,6 +98,7 @@ function turns(){
 
 function rolling(){
 	if(moved == 1){
+		document.getElementById("playerwhich").innerHTML = curplr;
 		roll();
 		checkroll = 1;
 		document.getElementById("die").src = "img/dice/dice"+rollnum+".png";
@@ -107,7 +108,7 @@ function rolling(){
 		if (isnt == 4){
 			console.log("inst")
 			isnt = 0;
-			document.getElementById("playerwhich").innerHTML = curplr;
+			
 			if (rollagain == 0) {
 				checkroll = 0;
 				playerprogress();
@@ -273,7 +274,6 @@ function chec(){
 }
 
 function loading(){
-	document.getElementById("playerwhich").innerHTML = curplr;
     n = 0;
     field.forEach(finding);
 }function finding(){
@@ -304,7 +304,6 @@ function playerprogress(){
 	curplr++;
 	isnt = 0;
 	if (curplr == 5) curplr = 1;
-	document.getElementById("playerwhich").innerHTML = curplr;
 	moved = 1;
 }
 
