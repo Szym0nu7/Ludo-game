@@ -9,7 +9,7 @@
   /* https://www.canva.com/colors/color-palettes/salmon-sushi/ */
   --color-background:#e7f2f8;
   --color-accent: #74bdcb;
-  --color-lighter-accnet:#8de2f3;
+  --color-lighter-accent:#8de2f3;
   --color-darker-accent:#5a939f;
   --color-darker-lighter-accent:#436e77;
   --color-darker-darker-accent:#305056;
@@ -19,7 +19,7 @@
   
   --color-nav:var(--color-accent);
   --color-nav-hover:var(--color-darker-accent);
-  --c-nav-font:var(--color-light-unique);
+  --color-nav-font:var(--color-light-unique);
   
   --color-left-border:var(--color-darker-accent);
   --color-left-background:var(--color-accent);
@@ -27,19 +27,18 @@
 
   --color-right-li-font:var(--color-darker-accent);
   --color-right-font:var(--color-darker-lighter-accent);
-  --color-right-background:var(--color-lighter-accnet);
+  --color-right-background:var(--color-lighter-accent);
   --color-right-border:var(--color-light-unique);
   --color-right-btn-border:var(--color-light-unique);
   --color-right-btn-font:var(--color-darker-lighter-accent);
   --color-right-btn-background:var(--color-unique);
 }
 
-
 .darkmode{
   /* https://www.canva.com/colors/color-palettes/doughnut-drizzle/ */
-  --color-background:rgb(45, 45, 45);
+  --color-background:#2d2d2d;
   --color-accent: #4A3E30;
-  --color-lighter-accnet:#6B5640;
+  --color-lighter-accent:#6B5640;
   --color-darker-accent:#231F12;
   --color-darker-lighter-accent:#342e1b;
   --color-darker-darker-accent:#1c190e;
@@ -49,7 +48,7 @@
   
   --color-nav:var(--color-accent);
   --color-nav-hover:var(--color-darker-accent);
-  --c-nav-font:var(--color-light-unique);
+  --color-nav-font:var(--color-light-unique);
   
   --color-left-border:var(--color-darker-accent);
   --color-left-background:var(--color-unique);
@@ -61,12 +60,36 @@
   --color-right-font:var(--color-light-unique);
   /* --color-right-font:var(--color-darker-lighter-accent); */
   --color-right-background:var(--color-accent);
-  /* --color-right-background:var(--color-lighter-accnet); */
+  /* --color-right-background:var(--color-lighter-accent); */
   --color-right-border:var(--color-light-unique);
   --color-right-btn-border:var(--color-light-unique);
   --color-right-btn-font:var(--color-light-unique);
   /* --color-right-btn-font:var(--color-darker-lighter-accent); */
   --color-right-btn-background:var(--color-unique);
+}
+.ultradarkmode{
+  --color-background:#121212fa; /*background*/
+  --color-lighter-accent:#00BFFF; /*font*/
+  --color-darker-accent:#1E90FF; /*tile*/
+  --color-unique:#121212d6; /*nav*/
+  --color-light-unique:#ffffff15; /*hover, border right*/
+
+  
+  --color-nav:var(--color-unique);
+  --color-nav-hover:var(--color-light-unique);
+  --color-nav-font:var(--color-lighter-accent);
+  
+  --color-left-border:var(--color-light-unique);
+  --color-left-background:var(--color-lighter-accent);
+  --color-left-yellow-background:null;
+
+  --color-right-li-font:var(--color-lighter-accent);
+  --color-right-font:var(--color-lighter-accent);
+  --color-right-background:var(--color-background);
+  --color-right-border:var(--color-light-unique);
+  --color-right-btn-border:var(--color-light-unique);
+  --color-right-btn-font:var(--color-lighter-accent);
+  --color-right-btn-background:var(--color-unique); /*var(--color-background)*/
 }
 body{
   display: grid;
@@ -108,7 +131,7 @@ body{
   display:block;
   display: flex;
   text-decoration: none;
-  color:var(--c-nav-font);
+  color:var(--color-nav-font);
 }
 .navigation ul li a .icon{
   position:relative;
@@ -233,6 +256,17 @@ input[type="button"]{
 .yellow{
   border:1px solid var(--color-left-yellow-background);
 }
-.dark-mode-toggle{
-  cursor: pointer;
+
+.list-categories{
+  /* list-style-type: none; */
+  /* padding: 0px; */
+  /* margin: 0px; */
+  max-height: 0px;
+  opacity: 0;
+  /* overflow: hidden; */
+  transition: opacity 300ms ease; /*300 lub 100*/
+}
+.list-categories.active{
+  max-height: inherit;
+  opacity: 1;
 }

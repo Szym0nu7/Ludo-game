@@ -27,9 +27,27 @@
             </a>
         </li>
         <li>
-            <a id="dark-mode-toggle" class="dark-mode-toggle">
-                <span class="icon"><i class="fa-solid fa-circle-half-stroke"></i></i></span>
+            <a href="#" onclick="toggleMenu()">
+                <span class="icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
                 <span class="title">Motywy</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="list-categories" onclick="theme(1)">
+                <span class="icon"><i class="fa-solid fa-bars"></i></span>
+                <span class="title">Light ⛅</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="list-categories" onclick="theme(2)">
+              <span class="icon"><i class="fa-solid fa-bars"></i></span>
+              <span class="title">Chocolate 🍫</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="list-categories" onclick="theme(3)">
+              <span class="icon"><i class="fa-solid fa-bars"></i></span>
+              <span class="title">Dark 🌙</span>
             </a>
         </li>
         <li>
@@ -41,7 +59,7 @@
         <li>
             <a href="#">
                 <span class="icon"><i class="fa-solid fa-people-group"></i></span>
-                <span class="title">Credits</span>
+                <span class="title">Autorzy</span>
             </a>
         </li>
     </ul>
@@ -180,14 +198,15 @@
         </td>
       </tr>
       <tr>
-        <td><input type="button" onclick="rolling()" value="rollin' math rocks"></td><td><input type="button" onclick="passing()" value="PASS"></td>
+        <td><input  type="button" onclick="rolling()" value="rolling"></td><td><input type="button" onclick="passing()" value="PASS"></td>
       </tr>
       <tr>
-        <td id="diceout"></td><td id="dice"></td>
+        <td id="diceout"><img id="die" src="img/dice/dice1.png" width="100px" height="100px" onclick="rolling()"></td><td id="dice"></td>
       </tr>
   </table>
   <script src="script-arrays.js"></script>
   <script src="dark-mode.js"></script>
+  <script src="toggleMenu.js"></script>
 
 </body>
 </html>

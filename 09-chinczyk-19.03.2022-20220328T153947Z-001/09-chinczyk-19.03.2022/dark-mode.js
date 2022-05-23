@@ -1,36 +1,43 @@
 let darkMode = localStorage.getItem("darkMode");
-const darkModeToggle = document.querySelector("#dark-mode-toggle");
 
-// check if dark mode is enabled
-// if it's enabled, turn it off
-// if it's disabled, turn it on
+const LightMode = () => {
+  document.body.classList.remove('darkmode');
+  document.body.classList.remove('ultradarkmode');
 
-const enableDarkMode = () => {
-  // 1. add the class darkmode to the body
+  localStorage.setItem('darkMode', 'light');
+};
+const DarkMode = () => {
+  document.body.classList.remove('ultradarkmode');
   document.body.classList.add('darkmode');
-  // 2. update darkMode in the LocalStorage
-  localStorage.setItem('darkMode', 'enabled');
+  
+  localStorage.setItem('darkMode', 'dark');
+};
+const UltraDarkMode = () => {
+  document.body.classList.remove('darkmode');
+  document.body.classList.add('ultradarkmode');
+  
+  localStorage.setItem('darkMode', 'ultra');
 };
 
-const disableDarkMode = () => {
-    // 1. add the class darkmode to the body
-    document.body.classList.remove('darkmode');
-    // 2. update darkMode in the LocalStorage
-    localStorage.setItem('darkMode', null);
-  };
+if (darkMode === 'dark'){
+  DarkMode();
+} else if (darkMode === 'ultra'){
+  UltraDarkMode();
+}
 
-  if (darkMode === 'enabled'){
-      enableDarkMode();
+function theme(n){
+  switch(n){
+    case 1:
+      LightMode();
+      console.log(darkMode);
+    break;
+    case 2:
+      DarkMode();
+      console.log(darkMode);
+    break;
+    case 3:
+      UltraDarkMode();
+      console.log(darkMode);
+    break;
   }
-
-darkModeToggle.addEventListener("click", ()=>{
-   darkMode = localStorage.getItem('darkMode');
-
-   if (darkMode !== 'enabled'){
-       enableDarkMode();
-       console.log(darkMode);
-   } else {
-       disableDarkMode();
-       console.log(darkMode);
-   }
-});
+}

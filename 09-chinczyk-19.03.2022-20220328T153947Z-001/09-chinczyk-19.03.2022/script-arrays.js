@@ -81,7 +81,7 @@ var convertedcurplr;
 //test function
 
 function test(){
-
+	
 }
 
 //main functions
@@ -100,7 +100,7 @@ function rolling(){
 	if(moved == 1){
 		roll();
 		checkroll = 1;
-		document.getElementById("diceout").innerHTML = rollnum;
+		document.getElementById("die").src = "img/dice/dice"+rollnum+".png";
 		moved = 0;
 		console.log("culprit " + curplr)
 		isntpawn();
@@ -257,6 +257,9 @@ function isntpawn(){
 	}
 	n++;
 }
+//animations
+
+
 
 //other functions
 
