@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Chińczyk</title>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -15,21 +15,21 @@
   <div class="navigation">
     <ul>
         <li>
-            <a href="#">
+            <a href="home.html">
                 <span class="icon"><i class="fa-solid fa-house"></i></span>
                 <span class="title">Home</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="instruction.html">
                 <span class="icon"><i class="fa-solid fa-scroll"></i></span>
-                <span class="title">Instrukcja</span>
+                <span class="title">Instruction</span>
             </a>
         </li>
         <li>
             <a href="#" onclick="toggleMenu()">
                 <span class="icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
-                <span class="title">Motywy</span>
+                <span class="title">Themes</span>
             </a>
         </li>
         <li>
@@ -51,15 +51,15 @@
             </a>
         </li>
         <li>
-            <a href="#">
-                <span class="icon"><i class="fa-solid fa-rotate-right"></i></span>
-                <span class="title">Reset</span>
+            <a href="credits.html">
+                <span class="icon"><i class="fa-solid fa-people-group"></i></span>
+                <span class="title">Credits</span>
             </a>
         </li>
         <li>
-            <a href="#">
-                <span class="icon"><i class="fa-solid fa-people-group"></i></span>
-                <span class="title">Autorzy</span>
+            <a href="about.html">
+                <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+                <span class="title">About</span>
             </a>
         </li>
     </ul>
@@ -73,7 +73,7 @@
         <td class="emptyfield" colspan="2"></td>
          <td class="field" onclick="checkfield(0)" id="a0" class="b0"></td>
          <td class="field" onclick="checkfield(1)" id="a1"></td>
-         <td class="field" onclick="checkfield(2)" id="a2"></td>
+         <td class="field green" onclick="checkfield(2)" id="a2"></td>
         <td class="emptyfield" colspan="2"></td>
         <td class="green" onclick="fromBase(62)" id="a62"></td>
         <td class="green" onclick="fromBase(63)" id="a63"></td>
@@ -104,7 +104,7 @@
         <td class="emptyfield" colspan="4"></td>
       </tr>
       <tr>
-         <td class="field" onclick="checkfield(32)" id="a32"></td>
+         <td class="field yellow" onclick="checkfield(32)" id="a32"></td>
          <td class="field" onclick="checkfield(33)" id="a33"></td>
          <td class="field" onclick="checkfield(34)" id="a34"></td>
          <td class="field" onclick="checkfield(35)" id="a35"></td>
@@ -140,7 +140,7 @@
          <td class="field" onclick="checkfield(15)" id="a15"></td>
          <td class="field" onclick="checkfield(14)" id="a14"></td>
          <td class="field" onclick="checkfield(13)" id="a13"></td>
-         <td class="field" onclick="checkfield(12)" id="a12"></td>
+         <td class="field red" onclick="checkfield(12)" id="a12"></td>
       </tr>
       <tr>
         <td class="emptyfield" colspan="4"></td>
@@ -171,7 +171,7 @@
         <td class="blue" onclick="fromBase(72)" id="a72"></td>
         <td class="blue" onclick="fromBase(73)" id="a73"></td>
         <td class="emptyfield" colspan="2"></td>
-         <td class="field" onclick="checkfield(22)" id="a22"></td>
+         <td class="field blue" onclick="checkfield(22)" id="a22"></td>
          <td class="field" onclick="checkfield(21)" id="a21"></td>
          <td class="field" onclick="checkfield(20)" id="a20"></td>
         <td class="emptyfield" colspan="2"></td>
@@ -182,26 +182,23 @@
   </table>
   <table class="right" cellspacing="5">
       <tr>
-        <td colspan="2" id="playerwhich"></td>
+        <td id="playerwhich"></td>
       </tr>
       <tr>
-        <td colspan="2" id="tip"><input type="button" id="btnstartgame" onclick="test()" value="Testy"></td>
+        <td id="tip">Roll<!--<input type="button" id="btnstartgame" onclick="test()" value="Testy">--></td>
       </tr>
       <tr>
-        <td colspan="2">
+        <td>
           <ol>
-            <li id="p0">1231</li>
-            <li id="p1">123312</li>
-            <li id="p2">1232</li>
-            <li id="p3">21</li>
+            <li id="p0">-</li>
+            <li id="p1">-</li>
+            <li id="p2">-</li>
+            <li id="p3">-</li>
           </ol>
         </td>
       </tr>
       <tr>
-        <td><input  type="button" onclick="rolling()" value="rolling"></td><td><input type="button" onclick="passing()" value="PASS"></td>
-      </tr>
-      <tr>
-        <td id="diceout"><img id="die" src="img/dice/dice1.png" width="100px" height="100px" onclick="rolling()"></td><td id="dice"></td>
+        <td id="diceout"><img id="die" src="img/dice/dice1.png" width="100px" height="100px" onclick="rolling()"></td>
       </tr>
   </table>
   <script src="script-arrays.js"></script>
