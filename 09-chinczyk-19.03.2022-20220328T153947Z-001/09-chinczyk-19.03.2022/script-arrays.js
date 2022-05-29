@@ -49,15 +49,15 @@ field[14][72] = "b72";
 field[15][73] = "b73";
 
 var wins = [
-	{ player: "yellow", score: 0 },
-	{ player: "green", score: 0 },
-	{ player: "red", score: 0 },
-	{ player: "blue", score: 0 },
+	{ player: "Yellow", score: 0 },
+	{ player: "Green", score: 0 },
+	{ player: "Red", score: 0 },
+	{ player: "Blue", score: 0 },
 ]
 
 var culprit = 1;
-var curplr = "Yellow"
-
+var curplr = "Yellow";
+var curplrs = "yellowcolor";
 //other variables
 
 var moved = 1;
@@ -78,14 +78,14 @@ var idram;
 var rampawn;
 var rampawns = [];
 var convertedcurplr;
-var place = 1;
 var object;
 var movedtiles
 
 //test function
 
 function test() {
-
+	wins[0].score = 1;
+		updategame();
 }
 
 //main functions
@@ -106,6 +106,7 @@ function turns() {
 
 function rolling() {
 	document.getElementById("playerwhich").innerHTML = curplr;
+	document.getElementById("playerwhich").className = curplrs;
 	if (moved == 1) {
 		roll();
 		checkroll = 1;
@@ -214,23 +215,19 @@ function checkplayer() {
 
 function areyawinningson() {
 	if (yd == 39) {
-		wins[0].score = place;
-		place++;
+		wins[0].score = 1;
 		updategame();
 	}
 	else if (gd == 43) {
-		wins[1].score = place;
-		place++;
+		wins[1].score = 1;
 		updategame();
 	}
 	else if (rd == 47) {
-		wins[2].score = place;
-		place++;
+		wins[2].score = 1;
 		updategame();
 	}
 	else if (bd == 51) {
-		wins[3].score = place;
-		place++;
+		wins[3].score = 1;
 		updategame();
 	}
 }
@@ -306,46 +303,39 @@ function chec() {
 
 function loading() {
 	document.getElementById("playerwhich").innerHTML = curplr;
+	document.getElementById("playerwhich").className = curplrs;
 	n = 0;
 	field.forEach(finding);
 } function finding() {
 	var tile = document.getElementById("a" + field[n].indexOf(pawns[n]));
-	if (pawns[n].charAt(0) == "y") tile.style.backgroundImage = "url('img/pawns/yellowpawn.png')";
-	else if (pawns[n].charAt(0) == "g") tile.style.backgroundImage = "url('img/pawns/greenpawn.png')";
-	else if (pawns[n].charAt(0) == "r") tile.style.backgroundImage = "url('img/pawns/redpawn.png')";
-	else if (pawns[n].charAt(0) == "b") tile.style.backgroundImage = "url('img/pawns/bluepawn.png')";
+	if (pawns[n].charAt(0) == "y") tile.style.backgroundImage = "url('img/pawns/yellowpawn.svg')";
+	else if (pawns[n].charAt(0) == "g") tile.style.backgroundImage = "url('img/pawns/greenpawn.svg')";
+	else if (pawns[n].charAt(0) == "r") tile.style.backgroundImage = "url('img/pawns/redpawn.svg')";
+	else if (pawns[n].charAt(0) == "b") tile.style.backgroundImage = "url('img/pawns/bluepawn.svg')";
 	n++;
 }
 
 function updategame() {
-	wins.sort(compare);
 	for (i = 0; i < 4; i++) {
-		if (wins[i].score == 0) document.getElementById("p" + i).innerHTML = "-";
-		else document.getElementById("p" + i).innerHTML = wins[i].player;
+		if (wins[i].score == 1) document.getElementById("winner").innerHTML = wins[i].player + " Wins!";
 	}
-} function compare(a, b) {
-	if (a.score < b.score) {
-		return -1;
-	}
-	if (a.score > b.score) {
-		return 1;
-	}
-	return 0;
 }
 
 function playerprogress() {
 	document.getElementById("playerwhich").innerHTML = curplr;
+	document.getElementById("playerwhich").className = curplrs;
 	culprit++;
 	isnt = 0;
 	if (culprit == 5) culprit = 1;
 	switch (culprit) {
-		case 1: curplr = "Yellow"; break;
-		case 2: curplr = "Green"; break;
-		case 3: curplr = "Red"; break;
-		case 4: curplr = "Blue"; break;
+		case 1: curplr = "Yellow";curplrs = "yellowcolor"; break;
+		case 2: curplr = "Green";curplrs = "greencolor"; break;
+		case 3: curplr = "Red";curplrs = "redcolor"; break;
+		case 4: curplr = "Blue";curplrs = "bluecolor"; break;
 	}
 	console.log("curplr " + curplr + " " + culprit)
 	document.getElementById("playerwhich").innerHTML = curplr;
+	document.getElementById("playerwhich").className = curplrs;
 	moved = 1;
 }
 
