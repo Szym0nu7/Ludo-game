@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chińczyk</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body onload="loading()">
+  <div class="navigation">
+    <ul>
+        <li>
+            <a href="home.html">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="title">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="instruction.html">
+                <span class="icon"><i class="fa-solid fa-scroll"></i></span>
+                <span class="title">Instruction</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="toggleMenu()">
+                <span class="icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
+                <span class="title">Themes</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="list-categories" onclick="theme(1)">
+                <span class="icon"><i class="fa-solid fa-bars"></i></span>
+                <span class="title">Light ⛅</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="list-categories" onclick="theme(2)">
+              <span class="icon"><i class="fa-solid fa-bars"></i></span>
+              <span class="title">Chocolate 🍫</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="list-categories" onclick="theme(3)">
+              <span class="icon"><i class="fa-solid fa-bars"></i></span>
+              <span class="title">Dark 🌙</span>
+            </a>
+        </li>
+        <li>
+            <a href="credits.html">
+                <span class="icon"><i class="fa-solid fa-people-group"></i></span>
+                <span class="title">Credits</span>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+                <span class="title">About</span>
+            </a>
+        </li>
+    </ul>
+  </div>
+  <!-- <div class="toggle" onclick="toggleMenu()"></div> -->
+  <table class="left">
+    <tbody>
+      <tr>
+        <td class="yellow" onclick="fromBase(58)" id="a58"></td>
+        <td class="yellow" onclick="fromBase(59)" id="a59"></td>
+        <td class="emptyfield" colspan="2"></td>
+         <td class="field" onclick="checkfield(0)" id="a0" class="b0"></td>
+         <td class="field" onclick="checkfield(1)" id="a1"></td>
+         <td class="field green" onclick="checkfield(2)" id="a2"></td>
+        <td class="emptyfield" colspan="2"></td>
+        <td class="green" onclick="fromBase(62)" id="a62"></td>
+        <td class="green" onclick="fromBase(63)" id="a63"></td>
+      </tr>
+      <tr>
+        <td class="yellow" onclick="fromBase(60)" id="a60"></td>
+        <td class="yellow" onclick="fromBase(61)" id="a61"></td>
+        <td class="emptyfield" colspan="2"></td>
+         <td class="field" onclick="checkfield(39)" id="a39"></td>
+        <td class="green" id="a44"></td>
+         <td class="field" onclick="checkfield(3)" id="a3"></td>
+        <td class="emptyfield" colspan="2"></td>
+        <td class="green" onclick="fromBase(64)" id="a64"></td>
+        <td class="green" onclick="fromBase(65)" id="a65"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield" colspan="4"></td>
+         <td class="field" onclick="checkfield(38)" id="a38"></td>
+        <td class="green" id="a45"></td>
+         <td class="field" onclick="checkfield(4)" id="a4"></td>
+        <td class="emptyfield" colspan="4"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield" colspan="4"></td>
+         <td class="field" onclick="checkfield(37)" id="a37"></td>
+        <td class="green" id="a46"></td>
+         <td class="field" onclick="checkfield(5)" id="a5"></td>
+        <td class="emptyfield" colspan="4"></td>
+      </tr>
+      <tr>
+         <td class="field yellow" onclick="checkfield(32)" id="a32"></td>
+         <td class="field" onclick="checkfield(33)" id="a33"></td>
+         <td class="field" onclick="checkfield(34)" id="a34"></td>
+         <td class="field" onclick="checkfield(35)" id="a35"></td>
+         <td class="field" onclick="checkfield(36)" id="a36"></td>
+        <td class="green" id="a47"></td>
+         <td class="field" onclick="checkfield(6)" id="a6"></td>
+         <td class="field" onclick="checkfield(7)" id="a7"></td>
+         <td class="field" onclick="checkfield(8)" id="a8"></td>
+         <td class="field" onclick="checkfield(9)" id="a9"></td>
+         <td class="field" onclick="checkfield(10)" id="a10"></td>
+      </tr>
+      <tr>
+         <td class="field" onclick="checkfield(31)" id="a31"></td>
+        <td class="yellow" id="a40"></td>
+        <td class="yellow" id="a41"></td>
+        <td class="yellow" id="a42"></td>
+        <td class="yellow" id="a43"></td>
+        <td class="emptyfield"></td>
+        <td class="red" id="a51"></td>
+        <td class="red" id="a50"></td>
+        <td class="red" id="a49"></td>
+        <td class="red" id="a48"></td>
+         <td class="field" onclick="checkfield(11)" id="a11"></td>
+      </tr>
+      <tr>
+         <td class="field" onclick="checkfield(30)" id="a30"></td>
+         <td class="field" onclick="checkfield(29)" id="a29"></td>
+         <td class="field" onclick="checkfield(28)" id="a28"></td>
+         <td class="field" onclick="checkfield(27)" id="a27"></td>
+         <td class="field" onclick="checkfield(26)" id="a26"></td>
+        <td class="blue" id="a55"></td>
+         <td class="field" onclick="checkfield(16)" id="a16"></td>
+         <td class="field" onclick="checkfield(15)" id="a15"></td>
+         <td class="field" onclick="checkfield(14)" id="a14"></td>
+         <td class="field" onclick="checkfield(13)" id="a13"></td>
+         <td class="field red" onclick="checkfield(12)" id="a12"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield" colspan="4"></td>
+         <td class="field" onclick="checkfield(25)" id="a25"></td>
+        <td class="blue" id="a54"></td>
+         <td class="field" onclick="checkfield(17)" id="a17"></td>
+        <td class="emptyfield" colspan="4"></td>
+      </tr>
+      <tr>
+        <td class="emptyfield" colspan="4"></td>
+         <td class="field" onclick="checkfield(24)" id="a24"></td>
+        <td class="blue" id="a53"></td>
+         <td class="field" onclick="checkfield(18)" id="a18"></td>
+        <td class="emptyfield"colspan="4"></td>
+      </tr>
+      <tr>
+        <td class="blue" onclick="fromBase(70)" id="a70"></td>
+        <td class="blue" onclick="fromBase(71)" id="a71"></td>
+        <td class="emptyfield" colspan="2"></td>
+         <td class="field" onclick="checkfield(23)" id="a23"></td>
+        <td class="blue" id="a52"></td>
+         <td class="field" onclick="checkfield(19)" id="a19"></td>
+        <td class="emptyfield"colspan="2"></td>
+        <td class="red" onclick="fromBase(66)" id="a66"></td>
+        <td class="red" onclick="fromBase(67)" id="a67"></td>
+      </tr>
+      <tr>
+        <td class="blue" onclick="fromBase(72)" id="a72"></td>
+        <td class="blue" onclick="fromBase(73)" id="a73"></td>
+        <td class="emptyfield" colspan="2"></td>
+         <td class="field blue" onclick="checkfield(22)" id="a22"></td>
+         <td class="field" onclick="checkfield(21)" id="a21"></td>
+         <td class="field" onclick="checkfield(20)" id="a20"></td>
+        <td class="emptyfield" colspan="2"></td>
+        <td class="red" onclick="fromBase(68)" id="a68"></td>
+        <td class="red" onclick="fromBase(69)" id="a69"></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="right" cellspacing="5">
+      <tr>
+        <td id="playerwhich" class="yellowcolor"></td>
+      </tr>
+      <tr>
+        <td id="tip">Roll<!--<input type="button" id="btnstartgame" onclick="test()" value="Testy">--></td>
+      </tr>
+      <tr>
+        <td id="winner">
+         - <!-- <input type="button" onclick="test()" value="bich"> -->
+        </td>
+      </tr>
+      <tr>
+        <td id="diceout"><img id="die" src="img/dice/dice1.png" width="100px" height="100px" onclick="rolling()"></td>
+      </tr>
+  </table>
+  <script src="script-arrays.js"></script>
+  <script src="dark-mode.js"></script>
+  <script src="toggleMenu.js"></script>
+
+</body>
+</html>
